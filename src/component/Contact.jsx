@@ -25,7 +25,7 @@ function Contact() {
     const handlerSubmit = async (e) => {
         e.preventDefault();
         setButtonText('Sending...')
-        let res = await fetch('http://localhost:5000/contact',{
+        let res = await fetch('http://localhost:8080/contact',{
             method: 'POST',
             headers:{
                 "Content-Type": "application/json;charset=utf-8",
@@ -60,19 +60,19 @@ function Contact() {
                         <form onSubmit={handlerSubmit} action="">
                             <Row>
                                 <Col size={12} sm={6} className='px-1'>
-                                    <input type="text" value={formInitialData.firstName} placeholder="First Name" onChange={(e) => onFormUpdate('firstName', e.target.value)} />
+                                    <input type="text" value={formData.firstName} placeholder="First Name" onChange={(e) => onFormUpdate('firstName', e.target.value)} />
                                 </Col>
                                 <Col size={12} sm={6} className='px-1'>
-                                    <input type="text" value={formInitialData.lastName} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)} />
+                                    <input type="text" value={formData.lastName} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)} />
                                 </Col>
                                 <Col size={12} sm={6} className='px-1'>
-                                    <input type="text" value={formInitialData.email} placeholder="Email" onChange={(e) => onFormUpdate('email', e.target.value)} />
+                                    <input type="text" value={formData.email} placeholder="Email" onChange={(e) => onFormUpdate('email', e.target.value)} />
                                 </Col>
                                 <Col size={12} sm={6} className='px-1'>
-                                    <input type="text" value={formInitialData.phone} placeholder="Phone Number" onChange={(e) => onFormUpdate('phone', e.target.value)} />
+                                    <input type="text" value={formData.phone} placeholder="Phone Number" onChange={(e) => onFormUpdate('phone', e.target.value)} />
                                 </Col>
                                 <Col size={12} className='px-1'>
-                                    <textarea rows="6" value={formInitialData.message} placeholder="Message" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
+                                    <textarea rows="6" value={formData.message} placeholder="Message" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
                                     <button type="submit"><span>{buttonText}</span></button>
                                 </Col>
                                 {
