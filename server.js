@@ -14,18 +14,19 @@ app.listen(8080, ()=> console.log('server start'))
 const contactEmail = nodemailer.createTransport({
     service:'outlook',
     auth:{
-        user: '',
-        pass: ''
+        user: 'as447560421@outlook.com',
+        pass: 'Hcf991025'
     }
 });
 
-contactEmail.verify((error)=>{
-    if(err){
-        console.log(error)
-    }else{
-        console.log('Ready to Send')
+contactEmail.verify((error) => {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log('Ready to Send');
     }
 });
+
 
 router.post('/contact', (req,res) =>{
     const name = req.body.firstName + req.body.lastName;
