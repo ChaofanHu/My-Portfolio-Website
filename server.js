@@ -14,8 +14,8 @@ app.listen(8080, ()=> console.log('server start'))
 const contactEmail = nodemailer.createTransport({
     service:'outlook',
     auth:{
-        user: 'as447560421@outlook.com',
-        pass: 'Hcf991025'
+        user: '',
+        pass: ''
     }
 });
 
