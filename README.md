@@ -1,3 +1,6 @@
+
+![project-img3](https://github.com/ChaofanHu/My-Portfolio-Website/assets/143227493/95ed29aa-2a1e-4093-b1ad-03acc697466c)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
