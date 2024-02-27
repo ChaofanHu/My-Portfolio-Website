@@ -3,6 +3,9 @@ import { Container, Row, Col } from 'react-bootstrap'
 import {ArrowRightCircle} from 'react-bootstrap-icons'
 import headerImg from '../assets/img/header-img.svg'
 import { useEffect, useState } from 'react'
+import { HashLink } from 'react-router-hash-link';
+import { BrowserRouter } from 'react-router-dom'
+
 
 function Banner() {
 
@@ -49,14 +52,17 @@ function Banner() {
 
 
   return (
+    <BrowserRouter>
     <section className='banner' id='home'>
         <Container>
             <Row className='align-items-center'>
                 <Col xs={12} md={6} xl={7}>
                   <span className="tagline">Welcome to my Portfolio</span>
                   <h1>{`Hi! I'm Chaofan`} <span className="txt-rotate" dataperiod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                  <p>I am a student currently pursuing a degree in informatics. My passion lies in the world of programming, where I find joy in solving complex problems and creating innovative solutions. I am fascinated by the ever-evolving landscape of technology and its potential to make a positive impact on the world.</p>
+                  <HashLink to="#contact">
+                  <button >Let’s Connect <ArrowRightCircle size={25} /></button>
+                  </HashLink>
                 </Col>
                 <Col xs={12} md={6} xl={5}>
                     <img src={headerImg} alt="Header Image" />
@@ -64,6 +70,7 @@ function Banner() {
             </Row>
         </Container>
     </section>
+    </BrowserRouter>
   )
 
 }

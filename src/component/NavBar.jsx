@@ -14,8 +14,13 @@ import { BrowserRouter } from 'react-router-dom';
 function NavBar() {
     const [activeLink, setActiveLink] = useState('home');
     const [scrolled, setScrolled] = useState(false);
+
+    useEffect(()=>{
+      document.title = "Chaofan's Website";
+    },[])
   
     useEffect(() => {
+      
       const onScroll = () => {
         if (window.scrollY > 50) {
           setScrolled(true);
@@ -52,7 +57,7 @@ function NavBar() {
             <span className="navbar-text">
               <div className="social-icon">
                 <a href="https://www.linkedin.com/in/chaofan-hu"><img src={navIcon1} alt=""  /></a>
-                <a href="http://https://github.com/ChaofanHu"><img src={navIcon2} alt="" /></a>
+                <a href="http://github.com/ChaofanHu"><img src={navIcon2} alt="" /></a>
                 {/* <a href="#"><img src={navIcon3} alt="" /></a> */}
               </div>
               <HashLink to='#contact'>

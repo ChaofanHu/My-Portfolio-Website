@@ -11,20 +11,21 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Business Startup",
+      title: "My Portfolio Website",
       description: "Design & Development",
-      imgUrl: '',
+      imgUrl: projImg3,
     },
     {
-      title: "Business Startup",
+      title: "Social Media Posts Website",
       description: "Design & Development",
-      imgUrl: '',
+      imgUrl: projImg2,
     },
     {
-      title: "Business Startup",
+      title: "MineBlog",
       description: "Design & Development",
-      imgUrl: '',
-    }
+      imgUrl: projImg1,
+    },
+    
   ];
 
   return (
@@ -64,7 +65,7 @@ const Projects = () => {
                         }
                       </Row>
                     </Tab.Pane>
-                    <Tab.Pane eventKey="section">
+                    <Tab.Pane eventKey="second">
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
