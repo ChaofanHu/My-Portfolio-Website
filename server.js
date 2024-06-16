@@ -1,6 +1,8 @@
+require("dotenv").config()
 const express = require('express')
 const cors = require('cors')
 const nodemailer = require('nodemailer')
+
 
 
 const router = express.Router()
@@ -14,8 +16,8 @@ app.listen(8080, ()=> console.log('server start'))
 const contactEmail = nodemailer.createTransport({
     service:'outlook',
     auth:{
-        user: '',
-        pass: ''
+        user: process.env.OUTLOOK_USER,
+        pass: process.env.OUTLOOK_PASS
     }
 });
 
