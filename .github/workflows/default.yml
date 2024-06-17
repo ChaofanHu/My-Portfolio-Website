@@ -15,8 +15,6 @@ jobs:
 
     - name: Set up Docker Compose
       run: sudo apt-get update && sudo apt-get install docker-compose -y
-    - name: echo
-      run : echo $${{ secrets.AWS_ACCESS_KEY_ID }}
       
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
@@ -37,6 +35,6 @@ jobs:
         REPOSITORY: my-ecr-repo
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        docker compose build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+        docker compose build
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
