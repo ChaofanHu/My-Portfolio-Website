@@ -34,7 +34,9 @@ jobs:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         REPOSITORY: my-ecr-repo
         IMAGE_TAG: ${{ github.sha }}
+        OUTLOOK_USER: ${{ secrets.OUTLOOK_USER }}
+        OUTLOOK_PASS: ${{ secrets.OUTLOOK_PASS }}
       run: |
-        docker compose build
+        docker compose build --build-arg OUTLOOK_USER=$OUTLOOK_USER --build-arg OUTLOOK_PASS=$OUTLOOK_PASS
+        docker tag my-ecr-repo:latest $REGISTRY/$REPOSITORY:$IMAGE_TAG
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
-
