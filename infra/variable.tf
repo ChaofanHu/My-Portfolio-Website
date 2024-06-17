@@ -1,30 +1,32 @@
 variable "access_key" {
   
 }
-
 variable "secret_key" {
   
 }
-variable "cidr_block" {
+variable "vpc_cidr_block" {
+
+}
+
+variable "subnet_cidr_block" {
+
+}
+
+variable "availability_zone" {
   
 }
+
 variable "env_prefix" {
   
 }
 variable "my_ip" {
   
 }
-variable "public_subnets" {
-  description = "List of public subnet CIDR blocks"
-  type        = list(string)
-  default     = ["10.0.101.0/24"]
-}
-variable "my_arn" {
-  type = list(string)
-}
-variable "availability_zone" {
+variable "aws_ami" {
   
 }
+
 variable "instance_type" {
   
 }
+variable "public_key_location" {}
