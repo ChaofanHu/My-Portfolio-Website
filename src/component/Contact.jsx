@@ -25,7 +25,7 @@ function Contact() {
     const handlerSubmit = async (e) => {
         e.preventDefault();
         setButtonText('Sending...')
-        let res = await fetch('http://localhost:8080/contact',{
+        let res = await fetch('https://qdqku6rotj.execute-api.eu-central-1.amazonaws.com/dev/contact',{
             method: 'POST',
             headers:{
                 "Content-Type": "application/json;charset=utf-8",
