@@ -35,7 +35,7 @@ jobs:
         REPOSITORY: my-ecr-repo
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        docker buildx build -t $REPOSITORY .
+        docker buildx build -t $REGISTRY/$REPOSITORY .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
     
     # - name: Deploy image on EC@
