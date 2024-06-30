@@ -18,4 +18,3 @@ cd $CLONE_DIR
 
 npm install
 npm start
-
