@@ -39,3 +39,4 @@ module "my_website_instance" {
     instance_type = var.instance_type
     public_key_location = var.public_key_location
 }
+

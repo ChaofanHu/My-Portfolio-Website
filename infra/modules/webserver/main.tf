@@ -8,8 +8,14 @@ resource "aws_security_group" "my_website_sg" {
         cidr_blocks = [var.my_ip]
     }
     ingress {
-        from_port = 8080
-        to_port = 8081
+        from_port = 80
+        to_port = 80
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    ingress {
+        from_port = 443
+        to_port = 443
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
@@ -59,29 +65,33 @@ resource "aws_instance" "my_website_instance" {
     // reference from key pair name in AWS EC2
     key_name = "server-key"
 
-    user_data = file("entrypoint.sh")
-
-    # connection {
-    #     type = "ssh"
-    #     host = self.public_ip
-    #     user = "ec2-user"
-    #     private_key = file(var.public_key_location)
-    # }
-
-    # provisioner "file" {
-    #     source = "entrypoint.sh"
-    #     destination = "/home/ec2-user/entrypoint.sh"
-    # }
-
-    # provisioner "remote-exec" {
-    #     script = file("entrypoint.sh")
-    # }
-
-    # provisioner "local-exec"{
-    #     command = "echo \"Hello, World!\" > index.html"
-    # }
+    user_data = file("${path.module}/../../entrypoint.sh")
 
     tags = {
         Name = "${var.env_prefix}-website-instance"
     }
+}
+
+data "aws_route53_zone" "selected" {
+  name         = var.domain_name
+  private_zone = false
+}
+
+resource "aws_route53_record" "www" {
+  zone_id = data.aws_route53_zone.selected.zone_id
+  name    = "www.${var.domain_name}"
+  type    = "A"
+
+  ttl     = "300"
+  records = [aws_instance.my_website_instance.public_ip]
+}
+
+
+resource "aws_route53_record" "root" {
+  zone_id = data.aws_route53_zone.selected.zone_id
+  name    = var.domain_name
+  type    = "A"
+
+  ttl     = "300"
+  records = [aws_instance.my_website_instance.public_ip]
 }

@@ -23,3 +23,8 @@ variable "vpc_id" {
 variable "subnet_id" {
   
 }
+variable "domain_name" {
+  description = "The domain name for the Route 53 record"
+  type        = string
+  default     = "chaofanbox.com"
+}
